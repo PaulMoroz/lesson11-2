@@ -5,4 +5,4 @@ config:
   l11-cats-dogs-example:docker_platform: linux/arm64 # or linux/amd64
   l11-cats-dogs-example:cpu_architecture: ARM64 # or X86_64
   l11-cats-dogs-example:docker_tag: latest
-encryptionsalt: v1:H5z6K0f6Jns=:v1:/hXerHRlr/znCZUQ:KgvWcbETd7poY28g3j8KJROGrL6vRg==
+encryptionsalt: v1:3LJpajdDcHs=:v1:h0tO1YRZiqL0jyrx:XYpzvYIC6Zs5bcOPwJJPh9LZSPN3NA==

@@ -1,7 +1,9 @@
-name: cats-dogs
-description: Cats vs Dogs classifier
+name: l11-cats-dogs-example
+description: cats-dogs.dev
 runtime:
   name: python
+  options:
+    toolchain: uv
 config:
   pulumi:tags:
     value:

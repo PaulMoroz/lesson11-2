@@ -1,8 +1,3 @@
-try:
-    from dotenv import load_dotenv
-
-    load_dotenv()
-except ImportError:
-    pass
+"""An AWS Python Pulumi program"""
 
 from infra import ecr_docker, ecs_service
