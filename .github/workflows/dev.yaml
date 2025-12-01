@@ -43,7 +43,8 @@ jobs:
 
       - name: Model download
         run: |
-          dvc pull l11-cats-dogs-example/models/model.pth.dvc
+          cd l11-cats-dogs-example
+          dvc pull models/model.pth.dvc
 
       - name: Deploy
         run: |
