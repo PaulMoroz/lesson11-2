@@ -1,0 +1,8 @@
+config:
+  aws:region: us-east-1
+  cats-dogs:docker_build_context: .
+  cats-dogs:dockerfile: Dockerfile
+  cats-dogs:docker_platform: linux/arm64 # or linux/amd64
+  cats-dogs:cpu_architecture: ARM64 # or X86_64
+  cats-dogs:docker_tag: latest
+encryptionsalt: v1:jq9ZWVbHWbg=:v1:UpF3H071BgU1hv/M:+fbzxFgKQS/OmwtPHPzILZJkYIJKlA==

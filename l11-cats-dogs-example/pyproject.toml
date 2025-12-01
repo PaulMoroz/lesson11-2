@@ -1,0 +1,39 @@
+[project]
+name = "l11-cats-dogs"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "click>=8.1.7",
+    "numpy>=1.26.0",
+    "python-dotenv>=1.0.1",
+    "streamlit>=1.37.0",
+    "torch>=2.3.0,<2.8.0",
+    "torchvision>=0.18.0,<0.23.0",
+    "tqdm>=4.66.0",
+    "pillow>=10.2.0",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchvision = { index = "pytorch-cpu" }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "dvc[s3]>=3.63.0",
+    "pre-commit>=4.3.0",
+    "pulumi-aws>=7.0.0,<8.0.0",
+    "pulumi>=3.0.0,<4.0.0",
+    "python-dotenv>=1.1.1",
+    "pulumi-docker>=4.8.2"
+]

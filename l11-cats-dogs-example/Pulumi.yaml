@@ -1,0 +1,8 @@
+name: cats-dogs
+description: Cats vs Dogs classifier
+runtime:
+  name: python
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-python
