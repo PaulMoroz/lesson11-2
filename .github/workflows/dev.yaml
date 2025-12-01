@@ -24,6 +24,10 @@ jobs:
 
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          uv-version: '0.5.30'
 
       - name: Set up Python
         uses: actions/setup-python@v5
