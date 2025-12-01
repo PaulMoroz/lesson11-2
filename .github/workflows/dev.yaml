@@ -38,6 +38,7 @@ jobs:
         env:
           UV_PROJECT_ENVIRONMENT: ${{env.pythonLocation}}
         run: |
+          cd l11-cats-dogs-example
           uv sync --only-dev
 
       - name: Model download
