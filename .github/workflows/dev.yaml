@@ -48,6 +48,7 @@ jobs:
 
       - name: Deploy
         run: |
+          cd l11-cats-dogs-example
           pulumi login $PULUMI_STATE
           pulumi stack select $PULUMI_STACK || pulumi stack init $PULUMI_STACK
           pulumi config set l11-cats-dogs-example:docker_platform: linux/amd64
