@@ -51,6 +51,6 @@ jobs:
           cd l11-cats-dogs-example
           pulumi login $PULUMI_STATE
           pulumi stack select $PULUMI_STACK || pulumi stack init $PULUMI_STACK
-          pulumi config set l11-cats-dogs-example:docker_platform: linux/amd64
-          pulumi config set l11-cats-dogs-example:cpu_architecture: X86_64
+          pulumi config set docker_platform linux/amd64
+          pulumi config set cpu_architecture X86_64
           pulumi up --yes --skip-preview
