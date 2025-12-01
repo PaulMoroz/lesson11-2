@@ -1,0 +1,50 @@
+name: Deploy dev
+
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+
+env:
+  PULUMI_STACK: cats-dogs.stage
+  PULUMI_PROJECT_NAME: l11-cats-dogs-example
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_REGION: us-east-1
+  PULUMI_STATE: s3://my-pulumi-state-bucket
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: pulumi/actions@v6
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install project
+        env:
+          UV_PROJECT_ENVIRONMENT: ${{env.pythonLocation}}
+        run: |
+          uv sync --only-dev
+
+      - name: Model download
+        run: |
+          dvc pull l11-cats-dogs-example/models/model.pth.dvc
+
+      - name: Deploy
+        run: |
+          pulumi login $PULUMI_STATE
+          pulumi stack select $PULUMI_STACK || pulumi stack init $PULUMI_STACK
+          pulumi config set l11-cats-dogs-example:docker_platform: linux/amd64
+          pulumi config set l11-cats-dogs-example:cpu_architecture: X86_64
+          pulumi up --yes --skip-preview
