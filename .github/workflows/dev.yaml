@@ -13,6 +13,7 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_REGION: us-east-1
   PULUMI_STATE: s3://my-pulumi-state-bucket
+  PULUMI_CONFIG_PASSPHRASE: ""
 
 
 jobs:
